@@ -17,4 +17,4 @@ async function patchAllWin(id, data, nome, img ){
   await allWinApi.patch("/"+id, { id: id, nome: nome, data: data, imagem:img });
 }
 
-export { getAllWin, postAllWin, deleteAllwin, patchAllWin };
+export { getPlayerById, postAllWin, deleteAllwin, patchAllWin };

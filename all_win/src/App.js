@@ -5,8 +5,8 @@ import { useState, useEffect } from "react";
 
 function App() {
   const [player, setPlayer] = useState([]);
-  async function fetchPlayer() {
-    const PlayerDaAPI = await getPlayerById();
+  async function handleGetPlayer(gameId, tagLine) {
+    const PlayerDaAPI = await getPlayerById(gameId, tagLine);
     setPlayer(PlayerDaAPI);}
   return (
     <div className="App">
