@@ -7,7 +7,8 @@ function App() {
   const [player, setPlayer] = useState([]);
   async function handleGetPlayer(gameId, tagLine) {
     const PlayerDaAPI = await getPlayerById(gameId, tagLine);
-    setPlayer(PlayerDaAPI);}
+    setPlayer(PlayerDaAPI);
+  }
   return (
     <div className="App">
       <header className="App-header">
