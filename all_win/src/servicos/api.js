@@ -2,8 +2,8 @@ import axios from "axios";
 
 const allWinApi = axios.create({ baseURL: `https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id` });
 
-async function getPlayerById(gameId = "NINJAKINGDOM", TagLine= "Br1") {
-  const response = await allWinApi.get(`/${gameId}/${TagLine}`, 
+async function getPlayerById(gameId = "NINJAKINGDOM", TagLine= "BR1") {
+  const response = await allWinApi.get(`/${gameId}/${TagLine}?api_key=RGAPI-a4dd09f7-318e-46e8-8245-5566f7cc3aa9`, 
   {
     headers: {
     'X-Riot-Token': 'RGAPI-a4dd09f7-318e-46e8-8245-5566f7cc3aa9',
