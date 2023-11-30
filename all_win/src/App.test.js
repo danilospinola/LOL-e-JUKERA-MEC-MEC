@@ -4,6 +4,6 @@ import { getAllWin } from './servicos/api'
 
 test('renders learn react link', () => {
   render(<App />);
-  const linkElement = screen.getByText(getAllWin);
+  const linkElement = screen.getByText();
   expect(linkElement).toBeInTheDocument();
 });
