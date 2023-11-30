@@ -1,9 +1,9 @@
 import axios from "axios";
 
-const allWinApi = axios.create({ baseURL: `/riot/account/v1/accounts/by-riot-id/${gameName}/${tagLine}?api_key=RGAPI-a4dd09f7-318e-46e8-8245-5566f7cc3aa9` });
+const allWinApi = axios.create({ baseURL: `https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id` });
 
-async function getAllWin() {
-  const response = await allWinApi.get("/");
+async function getPlayerById(gameId, TagLine= Br1) {
+  const response = await allWinApi.get(`/${gameId}/${TagLine}`);
 
   return response.data;
 }

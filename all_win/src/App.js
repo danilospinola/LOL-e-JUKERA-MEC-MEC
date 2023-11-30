@@ -1,7 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
+import {getPlayerById} from './servicos/api'
+import { useState, useEffect } from "react";
 
 function App() {
+  const [player, setPlayer] = useState([]);
+  async function fetchPlayer() {
+    const PlayerDaAPI = await getPlayerById();
+    setPlayer(PlayerDaAPI);}
   return (
     <div className="App">
       <header className="App-header">
