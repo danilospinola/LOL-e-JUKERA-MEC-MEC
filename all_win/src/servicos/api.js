@@ -1,5 +1,8 @@
 import axios from "axios";
 
+gameName = "NINJAKIGNDOM"
+tagLine = "BR1"
+
 const allWinApi = axios.create({ baseURL: `/riot/account/v1/accounts/by-riot-id/${gameName}/${tagLine}?api_key=RGAPI-a4dd09f7-318e-46e8-8245-5566f7cc3aa9` });
 
 async function getAllWin() {
@@ -17,4 +20,4 @@ async function patchAllWin(id, data, nome, img ){
   await allWinApi.patch("/"+id, { id: id, nome: nome, data: data, imagem:img });
 }
 
-export { getAllWin, postAllWin, deleteAllwin, patchAllWin };
+export { getAllWin, postAllWin, deleteAllwin, patchAllWin        };
