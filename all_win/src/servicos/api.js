@@ -1,27 +1,27 @@
 import axios from "axios";
 
-const allWinApi = axios.create({ baseURL: `https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id` });
+const allWinApiAccon = 'https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id';
+const Apikey = 'RGAPI-6f1273bc-598b-4fcd-b797-fb31ab182ed7';
 
-async function getPlayerById(gameId = "NINJAKINGDOM", TagLine= "BR1") {
-  const response = await allWinApi.get(`/${gameId}/${TagLine}?api_key=RGAPI-a4dd09f7-318e-46e8-8245-5566f7cc3aa9`, 
-  {
-    headers: {
-    'X-Riot-Token': 'RGAPI-a4dd09f7-318e-46e8-8245-5566f7cc3aa9',
-    }
-  }).then((res) => console.log(res))
-  .catch((err) => console.error(err));
+
+
+async function getPlayerById(gameId, TagLine) {
+  const response = await axios.get(`${allWinApiAccon}/${gameId}/${TagLine}?api_key=${Apikey}`);  
   
-  console.log(response)
-  return response;
+  console.log(response.data.puuid)
 }
+
+
+
+
 async function postAllWin(id, data, nome, img) {
-  await allWinApi.post("/", { id: id, nome: nome, data: data, imagem:img });
+  await allWinApiAccon.post("/", { id: id, nome: nome, data: data, imagem:img });
 }
 async function deleteAllwin(id) {
-  await allWinApi.delete("/" + id);
+  await allWinApiAccon.delete("/" + id);
 }
 async function patchAllWin(id, data, nome, img ){
-  await allWinApi.patch("/"+id, { id: id, nome: nome, data: data, imagem:img });
+  await allWinApiAccon.patch("/"+id, { id: id, nome: nome, data: data, imagem:img });
 }
 
 export { getPlayerById, postAllWin, deleteAllwin, patchAllWin };

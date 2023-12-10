@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+  import logo from './logo.svg';
 import './App.css';
 import {getPlayerById} from './servicos/api'
 import { useState, useEffect } from "react";
@@ -11,7 +11,8 @@ function App() {
   }
   return (
     <div className="App">
-      <button onClick={() => {getPlayerById("NINJAKINGDOM", "BR1")}} />
+
+
     </div>
   );
 }
