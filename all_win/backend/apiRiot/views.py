@@ -1,12 +1,16 @@
-from django.shortcuts import render,HttpResponse
+from django.shortcuts import render, HttpResponse
 import requests
+from parse import *
+
 # Create your views here.
 linkApi = 'https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id'
-Apikey = 'RGAPI-74a3c806-43bf-4846-94ed-8609970861ed'
+Apikey = 'RGAPI-c480b5e8-1a2f-42b3-8cb0-27d77ee4dc9e'
 
 def getPlayerById(objectRequest):
     tagline = 'BR1'
     gameName = 'NINJAKINGDOM'
 
-    riotApi = requests.get(f'{linkApi}/{gameName}/{tagline}?api_key={Apikey}')
-    return HttpResponse(riotApi)
+    riotApi = requests.get(f'{linkApi}/{gameName}/{tagline}?api_key={Apikey}') 
+    string = str(riotApi.content, encoding='utf-8')#Transforma a response em string
+    puuid = search('puuid":"{}"', string)#Procura o Puuid na string
+    return HttpResponse(puuid[0])
